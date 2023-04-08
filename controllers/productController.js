@@ -62,12 +62,13 @@ const getPublishedProduct = async (req, res) => {
 // 1 to many relation product and review
 
 const  getProductRewiews = async (req, res) => {
+  let id = req.params.id;
   const data = await Product.findAll({
     include:[{
       model: Review,
       as:'review'
     }],
-    where: {id : 1}
+    where: {id : id}
   })
   res.status(200).send(data)
 }

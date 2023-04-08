@@ -17,7 +17,7 @@ router.get("/allReviews", reviewController.getAllReviews);
 
 // product review
 
-router.get('/getProductReviews', productController.getProductRewiews)
+router.get('/getProductReviews/:id', productController.getProductRewiews)
 
 
 router.get("/:id", productController.getOneProduct);
