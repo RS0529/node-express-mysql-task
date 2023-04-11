@@ -27,9 +27,12 @@ app.use(express.urlencoded({ extended: true }));
 
 
 //routers
-const router = require("./routes/productRouter");
-app.use("/api/products", router);
+const productRoutes = require("./routes/productRouter");
+const authRoutes = require("./routes/authRouter");
 
+
+app.use("/api/products", productRoutes);
+app.use("/api/auth", authRoutes)
 
 app.get("/", (req, res) => {
   res.json({ message: "Hello express+mysqli project" });

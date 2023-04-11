@@ -1,6 +1,5 @@
 const productController = require("../controllers/productController");
 const reviewController = require("../controllers/reviewController");
-const userController = require ('../controllers/userController')
 const router = require("express").Router();
 
 router.post("/addProduct", productController.addProduct);
@@ -9,11 +8,16 @@ router.get("/allProducts", productController.getAllProducts);
 
 router.get("/published", productController.getPublishedProduct);
 
+router.get('/search', productController.getSearchProduct);
+
+router.get('/pagenation', productController.getPagenationProduct)
+
 // review url
 
 router.post("/addReview", reviewController.addReview);
 
 router.get("/allReviews", reviewController.getAllReviews);
+
 
 // product review
 
@@ -27,7 +31,5 @@ router.put("/:id", productController.updateProduct);
 router.delete("/:id", productController.deleteProduct);
 
 
-// users
 
-router.post('/register', userController.createUser)
 module.exports = router;

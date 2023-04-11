@@ -4,7 +4,7 @@ const Review = db.reviews;
 
 //add review
 
-const addReview = async (req, res) => {
+exports.addReview = async (req, res) => {
   let data = { 
     rating: req.body.rating,
     description: req.body.description,
@@ -16,9 +16,8 @@ const addReview = async (req, res) => {
 
 // Get all review
 
-const getAllReviews = async (req, res) => {
+exports.getAllReviews = async (req, res) => {
   const reviews = await Review.findAll({});
   res.status(200).send(reviews);
 };
 
-module.exports = { addReview, getAllReviews };
