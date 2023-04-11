@@ -1,7 +1,15 @@
 const express = require("express");
+const session = require('express-session')
 const cors = require("cors");
 
 const app = express();
+app.use(
+  session({
+    secret:'secret',
+    resave: true,
+    saveUninitialized: true,
+  })
+)
 
 let corOptions = { origin: "https://localhost:8000" };
 
